@@ -52,6 +52,7 @@ def postResult(request):
 
 
 def postInfMinion(request):
+    
     if request.method == "POST":
         dados = json.loads(request.body.decode('utf-8'))
         print("Info receb. do Minion: "+dados['nome'])
@@ -66,6 +67,7 @@ def postInfMinion(request):
             insertInfMinion(conn, dados)
         conn.close()
         return JsonResponse({'success': True, 'msg': "Info recebidas com sucesso"}, safe=False)
+
     return JsonResponse({'success': False, 'msg': "Erro, info não recebidas"}, safe=False)
 
 # Busca os minion cadastrados no database
@@ -107,7 +109,8 @@ def insertInfMinion(conn, dados):
                             disc_usado,
                             disc_livre,
                             disc_perc,
-                            data
+                            data,
+                            ativo
                         )
                 VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,datetime('now','localtime'),1);"""
 
