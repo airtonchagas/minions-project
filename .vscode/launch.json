@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Django: Minion Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\minionserver\\manage.py",
+            "args": [
+                "runserver",
+                "--noreload"
+            ],
+            "django": true
+        }
+    ]
+}
